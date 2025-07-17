@@ -23,13 +23,13 @@ remotes::install_github("jingyun20/lense")
 Sys.setenv(OPENAI_API_KEY = 'your_openai_API_key')
 
 # Load packages
-library(lense)
+library(Lense)
 library(Seurat)
 
 # Run preprocessing pipelines (Seurat object must be pre-filtered)
 # This step generates UMAP plots under 24 combinations of preprocessing parameters
 preprocess_pipelines(seurat_obj,
-                     nfeatures_vals = c(200, 348),
+                     nfeatures_vals = c(200, 367),
                      pc_vals = c(5, 20))
 
 # After generating UMAP plots, compare any two using GPT-4o:
