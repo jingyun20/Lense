@@ -13,7 +13,7 @@ install.packages("httr")
 install.packages("jsonlite")
 install.packages("base64enc")
 
-remotes::install_github("jingyun20/lense")
+remotes::install_github("jingyun20/Lense")
 ```
 
 ##  🚀 Quick start
