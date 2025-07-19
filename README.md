@@ -26,18 +26,19 @@ Sys.setenv(OPENAI_API_KEY = 'your_openai_API_key')
 library(Lense)
 library(Seurat)
 
-# Run preprocessing pipelines (Seurat object must be pre-filtered)
-# This step generates UMAP plots under 24 combinations of preprocessing parameters
-preprocess_pipelines(seurat_obj,
-                     nfeatures_vals = c(200, 367),
-                     pc_vals = c(5, 20))
+# ⚙️ Prepare a Seurat object (must be pre-filtered)
+# Example: after QC and cell filtering
 
-# After generating UMAP plots, compare any two using GPT-4o:
-res <- compare_umap("path/to/umap1.png", "path/to/umap2.png")
+# 🚀 Run the Lense pipeline:
+# This will generate UMAP plots under all preprocessing pipelines,
+# compare them pairwise using GPT-4o,
+# and automatically select the optimal preprocessing pipeline.
 
-# GPT-4o selects the better UMAP
-print(res$result)     # 1 or 2
-print(res$raw_reply)  # Full GPT reply
+result <- Lense(seurat_obj,
+                nfeatures_vals = NULL,  # NULL = use dynamic + all genes
+                pc_vals = c(5, 20),     # PCs: typically 5 or 20
+                resolution = 0.3）       # Clustering resolutio
+
 
 ```
 
