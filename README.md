@@ -37,7 +37,7 @@ library(Seurat)
 result <- Lense(seurat_obj,
                 nfeatures_vals = NULL,  # NULL = use dynamic + all genes
                 pc_vals = c(5, 20),     # PCs: typically 5 or 20
-                resolution = 0.3）       # Clustering resolutio
+                resolution = 0.3）       # Clustering resolution
 
 
 ```
