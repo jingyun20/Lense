@@ -54,4 +54,6 @@ analysis and improves preprocessing robustness without requiring manual tuning.
 
 Authors: Jingyun Liu (jingyun.liu2@duke.edu), Zhicheng Ji (zhicheng.ji@duke.edu).
 
+Report bugs and provide suggestions by sending email to the maintainer Dr. Wenpin Hou (jingyun.liu2@duke.edu) or open a new issue on this Github page.
+
 
