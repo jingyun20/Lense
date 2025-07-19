@@ -27,10 +27,10 @@ library(Lense)
 library(Seurat)
 
 # ⚙️ Prepare a Seurat object (must be pre-filtered)
-# Example: after QC and cell filtering
+
 
 # 🚀 Run the Lense pipeline:
-# This will generate UMAP plots under all preprocessing pipelines,
+# This will generate UMAP plots under all preprocessing pipelines (24),
 # compare them pairwise using GPT-4o,
 # and automatically select the optimal preprocessing pipeline.
 
