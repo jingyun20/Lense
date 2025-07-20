@@ -30,15 +30,23 @@ library(Seurat)
 
 
 # 🚀 Run the Lense pipeline:
-# This will generate UMAP plots under all preprocessing pipelines (24),
-# compare them pairwise using GPT-4o,
-# and automatically select the optimal preprocessing pipeline.
+# This will:
+# - Apply 24 preprocessing pipelines
+# - Generate UMAP plots under each combination
+# - Compare them pairwise using GPT-4o (via OpenAI API)
+# - Automatically select the optimal preprocessing pipeline
 
 result <- Lense(seurat_obj,
-                nfeatures_vals = NULL,  # NULL = use dynamic + all genes
-                pc_vals = c(5, 20),     # PCs: typically 5 or 20
-                resolution = 0.3）       # Clustering resolution
+                nfeatures_vals = NULL,                   # NULL = use dynamic formula + all genes
+                pc_vals = c(5, 20),                      # Principal Components: typically 5 and 20
+                resolution = 0.3,                        # Clustering resolution for Seurat
+                output_dir = "/path/to/output/folder"    # Folder to save all generated UMAP plots
+)
 
+# ✅ View results:
+result$best_pipeline          # Selected optimal preprocessing pipeline
+View(result$comparisons_log)  # Full comparison log (optional)
+print(result$umap_folder)     # Path to folder with saved UMAP plots
 
 ```
 
