@@ -29,13 +29,7 @@ library(Seurat)
 # ⚙️ Prepare a Seurat object (must be pre-filtered)
 
 # 🚀 Run the Lense pipeline:
-# This will:
-# - Apply 72 preprocessing pipelines (6 norm × 2 HVG × 2 PCs × 3 res)
-# - Generate UMAP plots under each combination
-# - Compare them pairwise using GPT-4o (via OpenAI API)
-# - Automatically select the optimal preprocessing pipeline
-
-result <- Lense(seurat_obj)
+best_obj <- Lense(seurat_obj)
 
 
 ```
