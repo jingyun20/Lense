@@ -1,4 +1,4 @@
-# Lense: LLM-powered preprocessing optimization for single-cell omics
+# Lense: Optimizing data preprocessing in single-cell omics using LLMs
 
 
 ## Installation 
@@ -31,22 +31,16 @@ library(Seurat)
 
 # 🚀 Run the Lense pipeline:
 # This will:
-# - Apply 24 preprocessing pipelines
+# - Apply 72 preprocessing pipelines (6 norm × 2 HVG × 2 PCs × 3 res)
 # - Generate UMAP plots under each combination
 # - Compare them pairwise using GPT-4o (via OpenAI API)
 # - Automatically select the optimal preprocessing pipeline
 
-result <- Lense(seurat_obj,
-                nfeatures_vals = NULL,                   # NULL = use dynamic formula + all genes
-                pc_vals = c(5, 20),                      # Principal Components: typically 5 and 20
-                resolution = 0.3,                        # Clustering resolution for Seurat
-                output_dir = "/path/to/output/folder"    # Folder to save all generated UMAP plots
-)
+best_pipeline <- <- Lense(seurat_obj)
 
-# ✅ View results:
-result$best_pipeline          # Selected optimal preprocessing pipeline
-View(result$comparisons_log)  # Full comparison log (optional)
-print(result$umap_folder)     # Path to folder with saved UMAP plots
+# ✅ View final result
+print(best_pipeline)
+# Output: "Norm=CLR | nFeatures=all | PCs=5 | Res=0.2"
 
 ```
 
@@ -62,6 +56,6 @@ analysis and improves preprocessing robustness without requiring manual tuning.
 
 Authors: Jingyun Liu (jingyun.liu2@duke.edu), Zhicheng Ji (zhicheng.ji@duke.edu).
 
-Report bugs and provide suggestions by sending email to the maintainer Dr. Wenpin Hou (jingyun.liu2@duke.edu) or open a new issue on this Github page.
+Report bugs and provide suggestions by sending email to the maintainer (jingyun.liu2@duke.edu) or open a new issue on this Github page.
 
 
