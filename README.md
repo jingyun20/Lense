@@ -28,7 +28,6 @@ library(Seurat)
 
 # ⚙️ Prepare a Seurat object (must be pre-filtered)
 
-
 # 🚀 Run the Lense pipeline:
 # This will:
 # - Apply 72 preprocessing pipelines (6 norm × 2 HVG × 2 PCs × 3 res)
@@ -36,11 +35,8 @@ library(Seurat)
 # - Compare them pairwise using GPT-4o (via OpenAI API)
 # - Automatically select the optimal preprocessing pipeline
 
-best_pipeline <- <- Lense(seurat_obj)
+result <- Lense(seurat_obj)
 
-# ✅ View final result
-print(best_pipeline)
-# Output: "Norm=CLR | nFeatures=all | PCs=5 | Res=0.2"
 
 ```
 
