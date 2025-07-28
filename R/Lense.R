@@ -1,6 +1,6 @@
-#' Lense: Automated Selection of Preprocessing Pipeline via GPT-4o
+#' Lense: Optimizing Data Preprocessing in Single-Cell Omics Using LLMs
 #'
-#' Applies multiple preprocessing pipelines to a single-cell Seurat object,
+#' Applies multiple (72) preprocessing pipelines to a single-cell Seurat object,
 #' generates UMAP plots, and selects the optimal pipeline using GPT-4o-based visual comparison.
 #' All UMAP plots are saved automatically. The function returns the best Seurat object
 #' corresponding to the optimal preprocessing pipeline.
