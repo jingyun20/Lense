@@ -2,7 +2,7 @@
 % Please edit documentation in R/Lense.R
 \name{Lense}
 \alias{Lense}
-\title{Lense: Automated Selection of Preprocessing Pipeline via GPT-4o}
+\title{Lense: Optimizing Data Preprocessing in Single-Cell Omics Using LLMs}
 \usage{
 Lense(
   seurat_obj,
