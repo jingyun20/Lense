@@ -5,7 +5,9 @@ Version: 1.0.0
 Date: 2025-07-16
 Author: Jingyun Liu, Zhicheng Ji
 Maintainer: Jingyun Liu <Jingyun.liu2@duke.edu>
-Description: An R package that integrates OpenAI GPT-4 API for automated selection of optimal preprocessing pipelines in single-cell omics analysis, using UMAP visualization comparison and iterative optimization. Lense systematically evaluates multiple preprocessing strategies and selects the optimal pipeline without requiring manual parameter tuning.
+Description: An R package that integrates OpenAI GPT-4 API for automated selection of optimal preprocessing pipelines in single-cell omics analysis, 
+             using UMAP visualization comparison and iterative optimization. Lense systematically evaluates multiple preprocessing strategies 
+             and selects the optimal pipeline without requiring manual parameter tuning.
 Encoding: UTF-8
 License: MIT
 RoxygenNote: 7.3.2
