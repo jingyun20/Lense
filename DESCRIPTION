@@ -1,6 +1,6 @@
 Package: Lense
 Type: Package
-Title: LLM-powered Automated Preprocessing Optimization for Single-Cell Omics Data
+Title: Optimizing Data Preprocessing in Single-Cell Omics Using LLMs
 Version: 1.0.0
 Date: 2025-07-16
 Author: Jingyun Liu, Zhicheng Ji
