@@ -1,0 +1,119 @@
+---
+title: "Lense - User Manual"
+author: Jingyun Liu, Zhicheng Ji
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Lense-intro}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+Data preprocessing is critical for single-cell omics analyses, but default pipelines may underperform on diverse datasets, especially from emerging platforms like spatial transcriptomics.
+We introduce **Lense**, a language-model-guided method that automatically selects optimal preprocessing by comparing UMAP plots across pipeline variants.
+Integrated with Seurat, Lense streamlines analysis and improves preprocessing robustness without requiring manual tuning.
+
+## Installation
+
+Lense can be installed by following [this instruction](https://github.com/jingyun20/Lense) on Github.
+
+```{r eval = FALSE}
+remotes::install_github("jingyun20/Lense")
+```
+
+## Set up OpenAI API key
+
+Lense integrates the [OpenAI API](https://platform.openai.com/account/api-keys) into the software.
+To connect to OpenAI API, a secret [API key](https://platform.openai.com/account/api-keys) is required.
+
+You can obtain your API key from the [OpenAI](https://openai.com/).
+After logging in:
+
+1.  Click on “→” next to API in the top menu.
+2.  Select API Keys from the left sidebar.
+3.  Click Create new secret key to generate your API key.
+4.  This will take you to the [API key page](https://platform.openai.com/account/api-keys), where you can copy the key for later use. Note: Make sure your OpenAI account has sufficient credits or access to GPT-4o. You can verify this under the "Billing" section in your OpenAI dashboard.
+
+Set up the API key as a system environment variable before running Lense.
+
+```{r,eval=FALSE}
+Sys.setenv(OPENAI_API_KEY = 'your_openai_API_key')
+```
+
+## Lense function
+
+Load the package and prepare a Seurat object:
+
+```{r}
+library(Lense)
+library(Seurat)
+```
+
+The main function in this package is `Lense()`.
+It takes as input a Seurat object that contains a raw count matrix and has undergone appropriate cell filtering.
+When run, Lense will apply all combinations of preprocessing pipelines and select the optimal one.
+
+```{r eval=FALSE}
+best_obj <- Lense(seurat_obj)
+```
+
+The returned object is a Seurat object corresponding to the optimal preprocessing pipeline.
+
+You can visualize the selected UMAP:
+
+```{r eval=FALSE}
+DimPlot(best_obj, reduction = "umap", group.by = "seurat_clusters")
+```
+
+### Default Pipelines Explored by Lense
+
+By default, Lense automatically explores 72 preprocessing pipelines, which are created from the following combinations:
+
+-   Normalization Methods: "SCT", "None", "LogNormalize", "LogCount", "RC", "CLR" (6 options)
+
+-   Feature Selection: "HVG" (highly variable genes), "all" (all genes)  (2 options)
+
+-   Number of Principal Components: 5, 20  (2 options)
+
+-   Clustering Resolutions: 0.2, 0.5, 1  (3 options)
+
+All other procedures follow Seurat’s default settings.
+All UMAP plots generated during pipeline evaluation are saved automatically to a temporary directory by default.
+
+### Customizing Parameters
+
+You can customize the preprocessing settings Lense evaluates.
+For example:
+
+```{r eval=FALSE}
+best_obj <- Lense(seurat_obj,
+  normalization_methods = c("SCT", "LogNormalize"),
+  nfeatures_vals = c("HVG", "all"),
+  pc_vals = c(5, 20),
+  resolution_vals = c(0.2, 0.5),
+  verbose = TRUE
+)
+```
+
+This will run all 16 combinations and select the best one.
+
+If `verbose = TRUE`, Lense will print intermediate progress messages and the final selected pipeline label to the console, which is useful for debugging or understanding how the best pipeline was chosen.
+
+You can also specify a custom directory using the `output_dir` parameter.
+
+## Session Info
+
+```{r}
+sessionInfo()
+```
