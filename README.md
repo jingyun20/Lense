@@ -31,6 +31,12 @@ library(Seurat)
 # 🚀 Run the Lense pipeline:
 best_obj <- Lense(seurat_obj)
 
+# ✅ Check the result: it's a standard Seurat object
+print(best_obj)
+
+# 📊 Visualize the final selected UMAP
+DimPlot(best_obj, reduction = "umap", group.by = "seurat_clusters")
+
 
 ```
 
