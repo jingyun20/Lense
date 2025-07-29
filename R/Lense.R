@@ -29,7 +29,7 @@
 #' @export
 
 Lense <- function(seurat_obj,
-                  normalization_methods = c("SCT", "None", "LogNormalize", "CLR", "RC", "LogCount"),
+                  normalization_methods = c("SCT", "None", "LogNormalize", "LogCount", "RC", "CLR"),
                   nfeatures_vals = c("HVG", "all"),
                   pc_vals = c(5, 20),
                   resolution_vals = c(0.2, 0.5, 1),
