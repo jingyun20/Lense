@@ -43,7 +43,7 @@ DimPlot(best_obj, reduction = "umap", group.by = "seurat_clusters")
 ### ⚠️ Warning: Do NOT share your API key publicly or upload it to GitHub.
 
 ## Introduction
-Preprocessing is critical for single-cell omics analyses, but default pipelines may underperform on diverse datasets, especially
+Data preprocessing is critical for single-cell omics analyses, but default pipelines may underperform on diverse datasets, especially
 from emerging platforms like spatial transcriptomics. We introduce Lense, a language-model-guided method that automatically
 selects optimal preprocessing by comparing UMAP plots across pipeline variants. Integrated with Seurat, Lense streamlines
 analysis and improves preprocessing robustness without requiring manual tuning.
