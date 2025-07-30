@@ -43,7 +43,7 @@ DimPlot(best_obj, reduction = "umap", group.by = "seurat_clusters")
 ### ⚠️ Warning: Do NOT share your API key publicly or upload it to GitHub.
 
 ## Vignette
-You can view the complete vignette [here](http://htmlpreview.github.io/?https://github.com/jingyun20/Lense/blob/main/vignettes/Lense-UserManual.html)
+For a detailed walkthrough and usage guide, check out the full vignette [here](http://htmlpreview.github.io/?https://github.com/jingyun20/Lense/blob/main/vignettes/Lense-UserManual.html).
 
 ## Introduction
 Data preprocessing is critical for single-cell omics analyses, but default pipelines may underperform on diverse datasets, especially
